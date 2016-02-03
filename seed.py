@@ -61,8 +61,11 @@ def load_movies():
         if title.find('(') != -1:
             cut = title.rfind("(")
             title = title[0:cut] 
+        
+        title = title.rstrip()
 
-        movie = Movie(title=title,
+        movie = Movie(movie_id= movie_id,
+                    title=title,
                     released_at=released_at,
                     imdb_url=imdb_url)
 

@@ -1,11 +1,19 @@
-<!doctype html>
 <html>
 <head>
-  <title>Ratings</title>
+    <link rel="stylesheet"
+          href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css"/>
+    <!-- <link rel="stylesheet" href="/static/css/site.css"/> -->
 </head>
 
 <body>
-  Ratings
+
+  <!-- Show flashed messages -->
+  {% with messages = get_flashed_messages() %}
+      {% for message in messages %}
+          <div>{{ message }}</div>
+      {% endfor %}
+  {% endwith %}
+    
   <hr>
 
   {% block content %} put your content here {% endblock %}
