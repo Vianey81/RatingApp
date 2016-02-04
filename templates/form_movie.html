@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h2>Movie Info</h2>
+
+    <h4>Title: </h4> {{ movie.title }} 
+    <h4>Released at:</h4> {{ movie.released_at }} 
+    <h4>IMDb:</h4> <a href="{{ movie.imdb_url }}"> {{ movie.imdb_url }} </a>
+    <p>Average rating: {{ average }}</p>
+    {% if user_rating %}
+        <p> You rated this movie: {{ user_rating.score }}.</p>
+    {% endif %}
+
+    {% if prediction %}
+        <p> We predict you will rate this movie {{ prediction }}.</p>
+    {% endif %}
+
+    <h2> Ratings from other users for this movie:</h2>
+    <ul>
+      {% for rating in ratings %}
+          <li>
+              <a href="/user_info/{{ rating.user_id }}">
+                {{ rating.user_id }} ({{ rating.score }})
+              </a>
+              
+          </li>
+      {% endfor %}
+    </ul>
+
+{% endblock %}
